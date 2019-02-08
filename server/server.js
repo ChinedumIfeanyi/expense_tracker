@@ -1,13 +1,25 @@
+import dotenv from "dotenv"
+dotenv.config()
+import bodyParser from "body-parser"
+import cors from "cors"
+
 import express from "express"
-
-let app = express()
-
-const PORT = process.env.PORT || 3500
 
 //====
 // Database connection
 import dbConnect from "./models/dbSetup"
 
+
+let app = express()
+
+const PORT = process.env.PORT || 3500
+
+//middleware
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+	extended: false
+}))
 
 
 app.get("/", (req,res)=>{
