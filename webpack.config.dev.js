@@ -35,10 +35,25 @@ module.exports = {
 		]
 	},
 	devServer:{
+		'proxy': {
+		  'api': {
+		  	'target': 'http://localhost:3500'
+		  },
+		},
+		stats: {
+			modules:false,
+			colors: true,
+			chunks: false
+		},
 		hot: true,
+		noInfo: true,
 		historyApiFallback: true,
 		inline: true,
-		contentBase: path.resolve(__dirname, "client", "public")
+		contentBase: path.resolve(__dirname, "client", "public"),
+		watchOptions: {
+			ignored: /node_modules/,
+			poll: true
+		}
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),

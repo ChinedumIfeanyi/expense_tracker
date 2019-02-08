@@ -15,14 +15,14 @@ let app = express()
 const PORT = process.env.PORT || 3500
 
 //middleware
-app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
 	extended: false
 }))
+app.use(cors() )
 
 
-app.get("/", (req,res)=>{
+app.get("/api/all", (req,res)=>{
 	const query = `SELECT value, reason, date FROM expense`
 	dbConnect.query(query, (err,data)=>{
 		if(err) res.send(err.message)
