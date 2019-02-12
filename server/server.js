@@ -2,17 +2,16 @@ import dotenv from "dotenv"
 dotenv.config()
 import bodyParser from "body-parser"
 import cors from "cors"
-
+import history from "connect-history-api-fallback"
 import express from "express"
-
+import path from "path"
 //====
 // Database connection
 import dbConnect from "./models/dbSetup"
 
-
 let app = express()
 
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 8000
 
 //middleware
 app.use(bodyParser.json())
@@ -20,26 +19,61 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }))
 app.use(cors() )
+app.use(history() )
+
+//if(process.env.NODE_ENV === 'production'){
 
 
-app.get("/api/all", (req,res)=>{
-	const query = `SELECT value, reason, date FROM expense`
+
+//}
+
+
+app.get("/expense", (req,res)=>{
+	const query = `SELECT id, value, reason, date FROM expense`
 	dbConnect.query(query, (err,data)=>{
 		if(err) res.send(err.message)
 		res.status(200).json(data)
 	})
 })
 
-app.post("/", (req,res)=>{
+app.post("/expense", (req,res)=>{
 	const query = `
 		INSERT INTO expense(value, reason, date) values(?,?,?)
 	`	
-	dbConnect.query(query,["400 euros", "Bought Wine", new Date()], (err,response)=>{
+	dbConnect.query(query,[req.body.inputValue, req.body.reasonForExpense, new Date()], (err,response)=>{
 		if(err) console.log(err.message)
-		res.send('data saved')
+		res.status(200).json('data saved')
 	})
 
 })
+
+app.get("/expense/:id", (req,res)=>{
+	const query = `
+		SELECT id, value, reason from expense WHERE id = ?
+	`
+	dbConnect.query(query, [req.params.id], (err,data)=>{
+		if(err) res.json(err.message)
+		res.status(200).json(data)
+	})
+})
+
+app.delete('/expense/:id', (req,res)=>{
+	const query = `
+		DELETE FROM expense WHERE id = ?
+	`
+	dbConnect.query(query, [req.params.id], (err,data)=>{
+		if(err) res.json(err.message)
+			res.status(201).json('deleted')
+	})
+})
+
+
+app.use('/', express.static(path.resolve(__dirname, './dist')));	
+app.use('*', express.static(path.resolve(__dirname, './dist')));	
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './dist/index.html'));
+});
 
 
 app.listen(PORT, ()=> console.log(`server booted @ ${PORT}`))

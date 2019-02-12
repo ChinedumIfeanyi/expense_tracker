@@ -1,13 +1,16 @@
 {
   "name": "expense_tracker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An application that allows users to keep trak of their expenses",
+  "main": "server.js",
   "scripts": {
-    "server-dev": "nodemon server/server.js --exec babel-node",
-    "client-dev": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "webpack --hide-modules --config webpack.config.dev.js --watch",
-    "dev-server": "cross-env NODE_ENV=development concurrently \"npm run client-dev\" \"npm run server-dev\" "
+    "build-client": "rimraf server/dist && webpack --mode production --config webpack.config.dev.js",
+    "build-server": "rimraf build && babel server -d build",
+    "build": "cross-env NODE_ENV=production npm run build-client && npm run build-server",
+    "client": "webpack-dev-server --config webpack.config.dev.js",
+    "server": "nodemon server/server.js --exec babel-node",
+    "dev-server": "cross-env NODE_ENV=development concurrently \"npm run client\" \"npm run server\" ",
+    "start": "npm run build && node build/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,14 +26,16 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "connect-history-api-fallback": "^1.6.0",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "mysql": "^2.16.0",
-    "mysql2": "^1.6.4",
-    "sequelize": "^4.42.0",
     "vue": "^2.6.2",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vue-swal": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -44,6 +49,7 @@
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.18.9",
+    "rimraf": "^2.6.3",
     "vue-loader": "^15.6.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.2",

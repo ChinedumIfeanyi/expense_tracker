@@ -10,7 +10,7 @@ module.exports = {
 	mode: "development",
 	entry: "./client/App.js",
 	output: {
-		path: path.resolve(__dirname, "client", "public"),
+		path: path.resolve(__dirname, "server", "dist"),
 		filename: '[name].bundle.js',
 		publicPath: "/"
 	},
@@ -35,10 +35,8 @@ module.exports = {
 		]
 	},
 	devServer:{
-		'proxy': {
-		  'api': {
-		  	'target': 'http://localhost:3500'
-		  },
+		"proxy": {
+		  "**": "http://[::1]:8000"
 		},
 		stats: {
 			modules:false,
@@ -56,12 +54,11 @@ module.exports = {
 		}
 	},
 	plugins: [
+		new VueLoaderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-		new VueLoaderPlugin()
-		// new HtmlWebpackPlugin({
-		// 	filename: 'index.html',
-		// 	template: './client/index.html',
-		// 	inject: true
-		// })
+		new HtmlWebpackPlugin({
+			template: './client/index.html',
+			inject: true
+		})
 	]
 }

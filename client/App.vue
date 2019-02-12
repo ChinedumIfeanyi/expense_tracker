@@ -1,7 +1,6 @@
 <template>
 	<div class="container">
-		<all-expense></all-expense>
-	</div>
+		<router-view :key="$route.fullPath"></router-view>	</div>
 </template>
 
 <script>
