@@ -67,7 +67,7 @@
 			Answer: _.debounce(function(){
 				/**
 				 * [euroAmount Amount inputed by the user]
-				 * @type {[type Interger]}
+				 * @type {[type Integer]}
 				 *
 				 * [euroSign Currency symbol inputed by the user]
 				 * @type { [type string]}
@@ -100,7 +100,7 @@
 					})	
 				}
 				
-			}, 1000),
+			}, 500),
 
 			//submit form entry
 			submitQuery(){
@@ -142,15 +142,6 @@
 	.parent-body {
 		text-align: center;
 		width: 100%;
-	}
-	header {
-		margin-bottom: 50px;
-		background-color: #42b983;
-		height: 100px;
-		display: flex;
-		justify-content:center;
-		font-size: 30px;
-		color: #fff;
 	}
 	.cal-vat {
 		border-radius: 10px;

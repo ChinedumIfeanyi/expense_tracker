@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build-client": "rimraf server/dist && webpack --mode production --config webpack.config.dev.js",
-    "build-server": "rimraf build && babel server -d build",
+    "build-server": "rimraf build && babel server -d build --copy-files",
     "build": "cross-env NODE_ENV=production npm run build-client && npm run build-server",
     "client": "webpack-dev-server --config webpack.config.dev.js",
     "server": "nodemon server/server.js --exec babel-node",
@@ -30,6 +30,8 @@
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "helmet": "^3.15.1",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "mysql": "^2.16.0",

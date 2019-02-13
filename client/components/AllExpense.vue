@@ -1,5 +1,7 @@
 <template>
+
 	<div> 
+		<heading></heading>
 		<nav>
 			<ul>
 				<li>
@@ -22,7 +24,7 @@
 				<td>{{item.reason}}</td>
 
 				
-				<td><button @click="deleteX(item.id)"> DELETE</button></td>
+				<td><button @click="deleteX(item.id)" class="delete"> DELETE</button></td>
 			</tr>
 
 
@@ -34,12 +36,16 @@
 	import axios from "axios"
 	import moment from 'moment'
 
+	import Heading from "./Heading.vue"
 	export default {
 		name: 'AllExpense',
 		data: ()=>({
 			data: []
 			
 		}),
+		components:{
+			Heading
+		},
 		methods:{
 			fetchExpense(){
 				axios.get("/expense")
@@ -72,7 +78,7 @@
 
 <style scoped>
 	caption {
-		background-color: green;
+		background-color: #42b983;
 		color: #fff;
 		font-size: 20px;
 		height: 30px;
@@ -87,12 +93,14 @@
 	td,th{
 		border: 2px solid #111;
 		padding: 10px;
+		text-align: center;
+		font-size: 20px;
+		font-weight:bold;
 	}
 	nav{
 		margin: 20px auto 20px
 	}
 	li{
-		background-color: #eee;
 		padding: 5px;
 		font-weight: bold;
 		text-align: center;
@@ -104,15 +112,17 @@
 		text-decoration: none;
 		font-size: 20px;
 		font-weight: bold;
-		background-color: #eee;
 		padding: 5px;
-		color: #111;
+		color: #42b983;
 
 	}
-	button{
+	button.delete{
 		border: none;
+		border-radius: 5px;
+		background-color: #ff6347;
+		color: #fff;
 		padding: 5px;
-		font-size: 20px;
+		font-size: 18px;
 		font-weight: bold;
 		cursor: pointer;
 	}
