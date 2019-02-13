@@ -1,9 +1,5 @@
 "use strict";
 
-var _dotenv = require("dotenv");
-
-var _dotenv2 = _interopRequireDefault(_dotenv);
-
 var _bodyParser = require("body-parser");
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
@@ -30,12 +26,10 @@ var _dbSetup2 = _interopRequireDefault(_dbSetup);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_dotenv2.default.config();
+var app = (0, _express2.default)();
 //====
 // Database connection
 
-
-var app = (0, _express2.default)();
 
 var PORT = process.env.PORT || 8000;
 
@@ -47,11 +41,15 @@ app.use(_bodyParser2.default.urlencoded({
 app.use((0, _cors2.default)());
 app.use((0, _connectHistoryApiFallback2.default)());
 
-//if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
 
+	app.use('/', _express2.default.static(_path2.default.resolve(__dirname, './dist')));
+	app.use('*', _express2.default.static(_path2.default.resolve(__dirname, './dist')));
 
-//}
-
+	app.get('*', function (req, res) {
+		res.sendFile(_path2.default.resolve(__dirname, './dist/index.html'));
+	});
+}
 
 app.get("/expense", function (req, res) {
 	var query = "SELECT id, value, reason, date FROM expense";

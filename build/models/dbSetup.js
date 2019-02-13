@@ -11,10 +11,10 @@ var _mysql2 = _interopRequireDefault(_mysql);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var dbConnect = _mysql2.default.createConnection({
-	host: process.env.DATABASE_HOST || 'localhost',
-	user: process.env.DATABASE_USER || 'root',
-	password: process.env.DATABASE_PASSWORD || '',
-	database: process.env.DATABASE_URL || 'expense'
+	host: process.env.DB_HOST || 'localhost',
+	user: process.env.DB_USER || 'root',
+	password: process.env.DB_PASSWORD || '',
+	database: process.env.DB_NAME || 'expense'
 });
 
 dbConnect.connect(function (err) {
