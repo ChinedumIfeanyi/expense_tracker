@@ -5,7 +5,7 @@
 
 
 * clone repository
-**set up env variables**
+* set up env variables
 * npm install
 * npm run build
 * npm start
