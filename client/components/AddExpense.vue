@@ -96,7 +96,7 @@
 
 						})
 					}).catch(error =>{
-						this.errorMsg = error.message
+						this.errorMsg = `${error.message} ${please refresh}`
 					})	
 				}
 				
