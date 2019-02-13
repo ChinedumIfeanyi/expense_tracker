@@ -4,8 +4,8 @@
   "description": "An application that allows users to keep trak of their expenses",
   "main": "server.js",
   "scripts": {
-    "build-client": "rimraf server/dist && webpack --mode production --config webpack.config.dev.js",
-    "build-server": "rimraf build && babel server -d build --copy-files",
+    "build-client": "webpack --mode production --config webpack.config.dev.js",
+    "build-server": "babel server -d build --copy-files",
     "build": "NODE_ENV=production npm run build-client && npm run build-server",
     "client": "webpack-dev-server --config webpack.config.dev.js",
     "server": "nodemon server/server.js --exec babel-node",
