@@ -20,6 +20,10 @@ var _path = require("path");
 
 var _path2 = _interopRequireDefault(_path);
 
+var _helmet = require("helmet");
+
+var _helmet2 = _interopRequireDefault(_helmet);
+
 var _dbSetup = require("./models/dbSetup");
 
 var _dbSetup2 = _interopRequireDefault(_dbSetup);
@@ -34,11 +38,12 @@ var app = (0, _express2.default)();
 var PORT = process.env.PORT || 8000;
 
 //middleware
+app.use((0, _helmet2.default)());
+app.use((0, _cors2.default)());
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({
 	extended: false
 }));
-app.use((0, _cors2.default)());
 app.use((0, _connectHistoryApiFallback2.default)());
 
 if (process.env.NODE_ENV === 'production') {

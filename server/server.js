@@ -3,6 +3,7 @@ import cors from "cors"
 import history from "connect-history-api-fallback"
 import express from "express"
 import path from "path"
+import helmet from "helmet"
 //====
 // Database connection
 import dbConnect from "./models/dbSetup"
@@ -13,11 +14,12 @@ let app = express()
 const PORT = process.env.PORT || 8000
 
 //middleware
+app.use(helmet() )
+app.use(cors() )
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
 	extended: false
 }))
-app.use(cors() )
 app.use(history() )
 
 if(process.env.NODE_ENV === 'production'){
