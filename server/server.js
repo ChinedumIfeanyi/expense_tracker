@@ -79,5 +79,12 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './dist/index.html'));
 });
 
-
-app.listen(PORT, ()=> console.log(`server booted @ ${PORT}`))
+dbConnect.connect((err)=>{
+	if(err){
+		console.log('Database connection error')
+	}else{
+		console.log('Database connected succesfully')
+		
+		app.listen(PORT, ()=> console.log(`server booted @ ${PORT}`))
+	}
+})

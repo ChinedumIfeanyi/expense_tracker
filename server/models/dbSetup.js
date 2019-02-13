@@ -7,12 +7,6 @@ let dbConnect = mysql.createConnection({
 	database: process.env.DB_NAME || 'expense'
 });
 
-dbConnect.connect((err)=>{
-	if(err){
-		console.log('Database connection error')
-	}else{
-		console.log('Database connected succesfully')
-	}
-})
+
 
 export default dbConnect
