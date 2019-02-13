@@ -21,11 +21,16 @@ app.use(bodyParser.urlencoded({
 app.use(cors() )
 app.use(history() )
 
-//if(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV === 'production'){
 
+	app.use('/', express.static(path.resolve(__dirname, './dist')));	
+	app.use('*', express.static(path.resolve(__dirname, './dist')));	
 
+	app.get('*', (req, res) => {
+	  res.sendFile(path.resolve(__dirname, './dist/index.html'));
+	});
 
-//}
+}
 
 
 app.get("/expense", (req,res)=>{
