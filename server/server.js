@@ -1,5 +1,4 @@
 import dotenv from "dotenv"
-dotenv.config()
 import bodyParser from "body-parser"
 import cors from "cors"
 import history from "connect-history-api-fallback"
@@ -8,6 +7,8 @@ import path from "path"
 //====
 // Database connection
 import dbConnect from "./models/dbSetup"
+
+dotenv.config()
 
 let app = express()
 
