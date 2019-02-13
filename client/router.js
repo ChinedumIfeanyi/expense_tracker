@@ -4,7 +4,6 @@ import Router from "vue-router"
 //components
 import AllExpense from "./components/AllExpense.vue"
 import AddExpense from "./components/AddExpense.vue"
-import EditExpense from "./components/EditExpense.vue"
 
 Vue.use(Router)
 
