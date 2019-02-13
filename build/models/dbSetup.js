@@ -17,12 +17,4 @@ var dbConnect = _mysql2.default.createConnection({
 	database: process.env.DB_NAME || 'expense'
 });
 
-dbConnect.connect(function (err) {
-	if (err) {
-		console.log('Database connection error');
-	} else {
-		console.log('Database connected succesfully');
-	}
-});
-
 exports.default = dbConnect;

@@ -90,6 +90,14 @@ app.get('*', function (req, res) {
 	res.sendFile(_path2.default.resolve(__dirname, './dist/index.html'));
 });
 
-app.listen(PORT, function () {
-	return console.log("server booted @ " + PORT);
+_dbSetup2.default.connect(function (err) {
+	if (err) {
+		console.log('Database connection error');
+	} else {
+		console.log('Database connected succesfully');
+
+		app.listen(PORT, function () {
+			return console.log("server booted @ " + PORT);
+		});
+	}
 });

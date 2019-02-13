@@ -1,4 +1,5 @@
-
+build/
+server/dist
 # Logs
 logs
 *.log
