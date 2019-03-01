@@ -47,7 +47,7 @@ module.exports = {
 		noInfo: true,
 		historyApiFallback: true,
 		inline: true,
-		contentBase: path.resolve(__dirname, "client", "public"),
+		contentBase: path.resolve(__dirname, "./server/dist"),
 		watchOptions: {
 			ignored: /node_modules/,
 			poll: true

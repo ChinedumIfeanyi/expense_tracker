@@ -75,7 +75,7 @@
 				this.euroAmount = this.inputValue.split(" ")[0]
 				this.euroSign = this.inputValue.split(" ")[1].toUpperCase()
 
-				const xchangeUrl = `https://free.currencyconverterapi.com/api/v5/convert?q=${this.euroSign}_${this.pounds}`;
+				const xchangeUrl = `https://free.currencyconverterapi.com/api/v6/convert?q=${this.euroSign}_${this.pounds}&compact=ultra&apiKey=04cac1d57911522c5ad1`;
 				//converting from Euro to Pounds
 				if(this.euroSign !== 'EUR'){
 					this.errorMsg = 'Currency symbol must be in Eur'
