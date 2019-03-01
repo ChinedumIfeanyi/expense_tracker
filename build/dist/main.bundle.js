@@ -11,7 +11,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }(e, n), t && t(e, n);
   };var n,
       r = !0,
-      a = "16385b0b89b7b0f22190",
+      a = "e8d4d9650e3b857a5ff9",
       i = 1e4,
       o = {},
       s = [],
@@ -1528,7 +1528,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }t.default = { name: "Expense", data: function data() {
       return { inputValue: "", reasonForExpense: "", errorMsg: "", euroAmount: "", euroSign: "", pounds: "GBP", exchangeAmount: "" };
     }, components: { Heading: i.default, "calculate-vat": o.default }, methods: { Answer: r.default.debounce(function () {
-        var e = this;this.euroAmount = this.inputValue.split(" ")[0], this.euroSign = this.inputValue.split(" ")[1].toUpperCase();var t = "https://free.currencyconverterapi.com/api/v5/convert?q=" + this.euroSign + "_" + this.pounds;"EUR" !== this.euroSign ? this.errorMsg = "Currency symbol must be in Eur" : a.default.get(t).then(function (t) {
+        var e = this;this.euroAmount = this.inputValue.split(" ")[0], this.euroSign = this.inputValue.split(" ")[1].toUpperCase();var t = "https://free.currencyconverterapi.com/api/v6/convert?q=" + this.euroSign + "_" + this.pounds + "&compact=ultra&apiKey=04cac1d57911522c5ad1";"EUR" !== this.euroSign ? this.errorMsg = "Currency symbol must be in Eur" : a.default.get(t).then(function (t) {
           Object.values(t.data.results).map(function (t) {
             console.log(t);var n = (parseFloat(e.euroAmount) * t.val).toFixed(2);e.exchangeAmount = n + " " + t.to;
           });
@@ -1560,7 +1560,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return "EUR" !== this.symbol ? "Symbol must be in " : Math.trunc(-1 * (parseFloat(this.grossAmount) / 1.2 - parseFloat(this.grossAmount)));
       } } };
 }, function (e, t, n) {
-  var r = n(196);"string" == typeof r && (r = [[e.i, r, ""]]), r.locals && (e.exports = r.locals);(0, n(5).default)("54e5df18", r, !0, {});
+  var r = n(196);"string" == typeof r && (r = [[e.i, r, ""]]), r.locals && (e.exports = r.locals);(0, n(5).default)("037085a8", r, !0, {});
 }, function (e, t, n) {
   "use strict";
   (function (t) {
@@ -6293,7 +6293,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       });
     }(i);
   }n(195);var o = n(2),
-      s = Object(o.a)(a.default, r.a, r.b, !1, null, "91181c40", null);t.default = s.exports;
+      s = Object(o.a)(a.default, r.a, r.b, !1, null, "cb4b7cee", null);t.default = s.exports;
 }, function (e, t, n) {
   (function (e, r) {
     var a;
@@ -8556,7 +8556,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   "use strict";
   var r = n(17);n.n(r).a;
 }, function (e, t, n) {
-  (e.exports = n(4)(!1)).push([e.i, "\n.parent-body[data-v-91181c40] {\n\ttext-align: center;\n\twidth: 100%;\n}\n.cal-vat[data-v-91181c40] {\n\tborder-radius: 10px;\n\tfont-size: 20px;\n\tfont-family: cursive;\n\twidth: 250px;\n\tmargin: auto;\n\tpadding: 2px;\n\tcolor: #fff;\n\tbackground-color: #32CD32;\n}\n.error[data-v-91181c40]{\n\tfont-size: 18px;\n\tpadding: 3px;\n\tcolor: #fff;\n\tbackground-color: #FF6347;\n}\n.form-handler[data-v-91181c40] {\n\tmargin: auto;\n}\nlabel[data-v-91181c40] {\n\tfont: 20px serif;\n}\n.form-control[data-v-91181c40] {\n\tmargin: 20px;\n}\n.input-control[data-v-91181c40] {\n\tpadding: 15px;\n\tfont: bold 18px sans-serif;\n\twidth: 80%;\n\ttext-align: center;\n\tborder-radius: 5px;\n\tborder: 0.5px solid grey;\n}\n.send-form[data-v-91181c40] {\n\tbackground-color: #42b983;\n\tcolor: #fff;\n\tfont-size: 20px;\n\tfont-family: sans-serif;\n\ttext-transform: uppercase;\n\twidth: 100px;\n\theight: 50px;\n\tborder: none;\n\tborder-radius: 5px;\n\tcursor: pointer;\n}\nli[data-v-91181c40],.link[data-v-91181c40]{\n\ttext-decoration: none;\n\tlist-style: none;\n\tfont-size: 25px;\n\tfont-weight: bold;\n\tcolor: #42b983;\n}\nnav[data-v-91181c40]{\n\ttext-align: left\n}\n", ""]);
+  (e.exports = n(4)(!1)).push([e.i, "\n.parent-body[data-v-cb4b7cee] {\n\ttext-align: center;\n\twidth: 100%;\n}\n.cal-vat[data-v-cb4b7cee] {\n\tborder-radius: 10px;\n\tfont-size: 20px;\n\tfont-family: cursive;\n\twidth: 250px;\n\tmargin: auto;\n\tpadding: 2px;\n\tcolor: #fff;\n\tbackground-color: #32CD32;\n}\n.error[data-v-cb4b7cee]{\n\tfont-size: 18px;\n\tpadding: 3px;\n\tcolor: #fff;\n\tbackground-color: #FF6347;\n}\n.form-handler[data-v-cb4b7cee] {\n\tmargin: auto;\n}\nlabel[data-v-cb4b7cee] {\n\tfont: 20px serif;\n}\n.form-control[data-v-cb4b7cee] {\n\tmargin: 20px;\n}\n.input-control[data-v-cb4b7cee] {\n\tpadding: 15px;\n\tfont: bold 18px sans-serif;\n\twidth: 80%;\n\ttext-align: center;\n\tborder-radius: 5px;\n\tborder: 0.5px solid grey;\n}\n.send-form[data-v-cb4b7cee] {\n\tbackground-color: #42b983;\n\tcolor: #fff;\n\tfont-size: 20px;\n\tfont-family: sans-serif;\n\ttext-transform: uppercase;\n\twidth: 100px;\n\theight: 50px;\n\tborder: none;\n\tborder-radius: 5px;\n\tcursor: pointer;\n}\nli[data-v-cb4b7cee],.link[data-v-cb4b7cee]{\n\ttext-decoration: none;\n\tlist-style: none;\n\tfont-size: 25px;\n\tfont-weight: bold;\n\tcolor: #42b983;\n}\nnav[data-v-cb4b7cee]{\n\ttext-align: left\n}\n", ""]);
 }, function (e, t, n) {
   /*!
    * vue-swal v1.0.0
